@@ -1,4 +1,4 @@
-import { Observable, Observer } from "rxjs";
+import { Observable } from "rxjs";
 import { Context } from "../contracts/context";
 import { rawContext } from "../contracts/rawcontext";
 import { rawData } from "../contracts/rawdata";
