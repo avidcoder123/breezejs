@@ -5,6 +5,7 @@ import { Runnable } from 'co-compose/build/src/Runnable'
 import { rawContext } from '../contracts/rawcontext'
 import { IncomingMessage } from 'http'
 import { ContextCreator } from '../context'
+import { Context } from '../contracts/context'
 
 export class BreezeServer {
     //Initiate a websocket server.
@@ -28,7 +29,11 @@ export class BreezeServer {
                 }
 
                 //A more user-friendly ctx object
-                const ctx = new ContextCreator(rawCtx)
+                const ctx: Context = new ContextCreator(rawCtx)
+
+                runner
+                .run([ctx])
+                .then()
             })
         })
 

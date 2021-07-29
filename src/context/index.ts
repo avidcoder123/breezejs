@@ -5,19 +5,25 @@ import { rawData } from "../contracts/rawdata";
 
 
 export class ContextCreator implements Context {
-    contructor(raw: rawContext) {
+    constructor(raw: rawContext) {
         this.rawCtx = raw
         let rawdata: rawData = JSON.parse(this.rawCtx.data.toString())
         this.socket = {
 
                 //Send a message across WS.
                 send: <T>(data: T): void => {
-                    this.rawCtx.socket.send(data)
+                    this.rawCtx.socket.send({
+                        data,
+                        rid: rawdata.rid
+                    })
                 },
         
                 //Subscribe to an observable and send a message every time it emits
                 sendObservable: <T>(observable: Observable<T>): void => {
-                    observable.subscribe(this.rawCtx.socket.send)
+                    observable.subscribe((data: T) => this.rawCtx.socket.send({
+                        data,
+                        rid: rawdata.rid
+                    }))
                 },
         
                 //The url of the WS request.
