@@ -1,3 +1,3 @@
 import { Context } from "./context"
 
-export type BreezeMiddleware = (ctx: Context) => Promise<void>
+export type BreezeMiddleware = (ctx: Context, next: Promise<void>) => Promise<void>

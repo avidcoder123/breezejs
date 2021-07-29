@@ -7,6 +7,7 @@ export interface Context {
         url: string,
         data: string,
         ip?: string,
-        
+        rid: string,
+        type: "request" | "observable"
     }
 }

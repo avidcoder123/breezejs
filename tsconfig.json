@@ -21,6 +21,7 @@
     "rootDir": "../../",
     "baseUrl": "../../",
 		"sourceMap": true,
+    "noImplicitAny": true
   },
   "include": [
     "**/*"
