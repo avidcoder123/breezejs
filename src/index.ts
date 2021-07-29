@@ -15,8 +15,10 @@ export class Breeze {
     //Add middleware to the middleware stack
     public use(middleware: BreezeMiddleware): void {
         this.middlewareStack.push(middleware)
-        this.wss.on("connection", (ws) => {
-            ws.emit
+        this.wss.on("connection", (ws, request) => {
+            ws.on("message", (es) => {
+                request.socket.remoteAddress
+            })
         })
     }
 }

@@ -4,6 +4,7 @@
     "@types/ws": "^7.4.7",
     "bufferutil": "^4.0.3",
     "co-compose": "^6.1.4",
+    "rxjs": "^7.3.0",
     "utf-8-validate": "^5.0.5",
     "ws": "^8.0.0"
   }
